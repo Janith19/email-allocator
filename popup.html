@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Email Allocator</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        width: 360px;
+        height: 100%;
+        padding: 20px;
+        background: linear-gradient(135deg, #fdfbfb, #ebedfa);
+        color: #2c3e50;
+
+        display: flex; /* center content vertically + horizontally */
+        flex-direction: column;
+        align-items: center; /* horizontal centering */
+      }
+
+      input,
+      textarea,
+      button#addBtn {
+        max-width: 320px; /* optional, prevents inputs from stretching too much */
+        box-sizing: border-box;
+      }
+
+      .color-palette {
+        justify-content: center; /* center color swatches horizontally */
+      }
+
+      h3 {
+        text-align: center;
+        font-size: 22px;
+        color: #4a90e2;
+        margin-bottom: 20px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px 12px;
+        margin-bottom: 10px;
+        border-radius: 12px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        transition: all 0.2s;
+      }
+
+      input:focus,
+      textarea:focus {
+        border-color: #4a90e2;
+        box-shadow: 0 0 6px rgba(74, 144, 226, 0.25);
+        outline: none;
+      }
+
+      .color-palette {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+
+      .color-swatch {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: transform 0.2s, border 0.2s;
+      }
+
+      .color-swatch.selected {
+        transform: scale(1.2);
+        border: 2px solid #4a90e2;
+      }
+
+      button#addBtn {
+        width: 100%;
+        background: linear-gradient(135deg, #4a90e2, #50e3c2);
+        color: #fff;
+        font-weight: 600;
+        padding: 12px;
+        border-radius: 16px;
+        border: none;
+        cursor: pointer;
+        font-size: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s;
+      }
+
+      button#addBtn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      h4 {
+        margin: 20px 0 10px;
+        font-size: 16px;
+        color: #34495e;
+      }
+
+      #categoryList {
+        max-height: 260px;
+        overflow-y: auto;
+      }
+
+      .category-card {
+        display: flex;
+        flex-direction: column;
+        padding: 12px 14px;
+        margin-bottom: 12px;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+        transition: all 0.15s;
+      }
+
+      .category-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+      }
+
+      .category-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      .category-name {
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+      }
+
+      .color-circle {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .delete-icon {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        fill: #e74c3c;
+        transition: transform 0.2s, fill 0.2s;
+      }
+
+      .delete-icon:hover {
+        fill: #c0392b;
+        transform: scale(1.1);
+      }
+
+      .keywords {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .keyword-tag {
+        background: linear-gradient(135deg, #4a90e2, #50e3c2);
+        color: #fff;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Email Allocator</h3>
+
+    <input id="catName" placeholder="Category Name (e.g. Job Replies)" />
+    <textarea
+      id="catKeywords"
+      placeholder="Keywords (comma separated)"
+    ></textarea>
+
+    <div class="color-palette">
+      <div
+        class="color-swatch"
+        style="background: #34a853"
+        data-color="#34a853"
+      ></div>
+      <div
+        class="color-swatch"
+        style="background: #4285f4"
+        data-color="#4285f4"
+      ></div>
+      <div
+        class="color-swatch"
+        style="background: #fbbc05"
+        data-color="#fbbc05"
+      ></div>
+      <div
+        class="color-swatch"
+        style="background: #ea4335"
+        data-color="#ea4335"
+      ></div>
+      <div
+        class="color-swatch"
+        style="background: #9b59b6"
+        data-color="#9b59b6"
+      ></div>
+    </div>
+
+    <button id="addBtn">+ Add Category</button>
+
+    <h4>Current Categories</h4>
+    <div id="categoryList"></div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

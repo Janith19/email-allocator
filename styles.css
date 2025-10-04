@@ -1,0 +1,33 @@
+.email-allocator-badge {
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-size: 11px;
+  margin-left: 6px;
+  font-weight: 500;
+}
+.delete-btn {
+  width: 28px;
+  height: 28px;
+  background: #e74c3c;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  margin-left: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.delete-btn:hover {
+  background: #c0392b;
+  transform: scale(1.1);
+}
+
+.delete-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: white;
+}
