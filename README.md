@@ -1,4 +1,5 @@
 # Email Allocator
+
 A Browser extension that visually categorizes Gmail emails based on keywords.
 
 ## Features
@@ -13,6 +14,16 @@ A Browser extension that visually categorizes Gmail emails based on keywords.
 2. Go to `chrome://extensions/`
 3. Enable Developer Mode
 4. Click "Load unpacked" and select the project folder
+
+## Screenshots
+
+### Popup UI
+
+![Popup UI](screenshots/Popup.png)
+
+### Email Badge Example
+
+![Email Badge](screenshots/badge.png)
 
 ## License
 
